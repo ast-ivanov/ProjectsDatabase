@@ -1,0 +1,34 @@
+﻿<Window x:Class="ASILab6.DialogProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ASILab6"
+        Title="Добавить проект" Height="400" Width="300">
+    <StackPanel Margin="5">
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Width="100">Студент:</TextBlock>
+            <TextBlock Text="{Binding SelectedStudent.Name}" Width="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Width="100">Название:</TextBlock>
+            <TextBox Name="projectName" Width="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Width="100">Семестр:</TextBlock>
+            <TextBox Name="projectTerm" Width="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Width="100">Дисциплина:</TextBlock>
+            <ComboBox Name="projectDiscipline" MinWidth="100" Width="Auto"
+                      ItemsSource="{Binding Disciplines.Local}"
+                      SelectedItem="{Binding SelectedDiscipline, Mode=TwoWay}"
+                      DisplayMemberPath="DisciplineName"
+                      Text="{Binding SelectedDiscipline.DisciplineName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+            <TextBlock Width="100">Описание:</TextBlock>
+            <TextBox Name="projectContent" Width="150" Height="150"/>
+        </StackPanel>
+        <Button HorizontalAlignment="Center" Width="100" Margin="0,0,0,5" Click="Add_Click">Добавить</Button>
+        <Button HorizontalAlignment="Center" Width="100" Click="Cancel_Click">Отменить</Button>
+    </StackPanel>
+</Window>
